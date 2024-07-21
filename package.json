@@ -1,0 +1,13 @@
+{
+  "name": "serv00-auto-renew",
+  "version": "1.0.0",
+  "main": "api/ssh-connect.js",
+  "type": "module",
+  "scripts": {
+    "start": "node api/ssh-connect.js"
+  },
+  "dependencies": {
+    "ssh2": "^1.15.0",
+    "node-fetch": "^3.3.2"
+  }
+}

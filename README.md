@@ -2,7 +2,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/github/license/amakerlife/serv00-auto-renew" alt="License" />
-<img src="https://img.shields.io/github/last-commit/amakerlife/serv00-auto-new">
+<img src="https://img.shields.io/github/last-commit/amakerlife/serv00-auto-renew">
 
 在 Vercel 上部署 Serv00 保活。
 

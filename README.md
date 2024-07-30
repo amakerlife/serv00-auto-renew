@@ -21,7 +21,7 @@
 ## 环境变量
 
 > [!CAUTION]
-> Bark 环境变量格式已修改，请注意更改。
+> 环境变量格式已修改，请注意更改。
 
 
 | 变量名              | 内容                                            |
@@ -33,5 +33,15 @@
 | HOSTx               | 例如 `HOST1`，可配置多个，为 SSH 连接地址       |
 | USERNAMEx           | 例如 `USERNAME1`，可配置多个，为 SSH 连接用户名 |
 | PASSWORDx           | 例如 `PASSWORD1`，可配置多个，为 SSH 连接密码   |
+| COMMANDx（可选）    | 例如 `COMMAND1`，可配置多个，为 SSH 执行的命令  |
 
 注意可配置多个的环境变量需配套使用。
+
+## 定时任务
+
+如需更改定时任务设置，请修改 `vercel.json`。
+
+默认 `ssh-connect` 在每月 10、20、28 日执行一次，`ssh-command` 无定时。
+
+> [!TIP]
+> Vercel 免费版单 Cron Job 一天最多执行一次，即 `0 0 * * *`。

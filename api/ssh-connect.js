@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 const USERNAME = process.env.BASIC_AUTH_USERNAME;
 const PASSWORD = process.env.BASIC_AUTH_PASSWORD;
 const CRON_SECRET = process.env.CRON_SECRET;
+const BARK = process.env.BARK;
 
 export default async function handler(req, res) {
   const authHeader = req.headers['authorization'];
@@ -43,8 +44,7 @@ async function handleRequest(req, res) {
     accounts.push({
       host: process.env[`HOST${index}`],
       username: process.env[`USERNAME${index}`],
-      password: process.env[`PASSWORD${index}`],
-      bark: process.env[`BARK${index}`],
+      password: process.env[`PASSWORD${index}`]
     });
     index++;
   }
@@ -64,7 +64,7 @@ async function handleRequest(req, res) {
 }
 
 async function sshConnect(account) {
-  const { host, username, password, bark } = account;
+  const { host, username, password } = account;
 
   const conn = new Client();
 
@@ -72,8 +72,8 @@ async function sshConnect(account) {
     conn.on('ready', async () => {
       console.log(`SSH 连接成功: ${username}@${host}`);
 
-      if (bark) {
-        const url = `https://api.day.app/${bark}/账号 ${username} SSH  连接成功?group=Serv00 自动登录&sound=silence`;
+      if (BARK) {
+        const url = `https://api.day.app/${BARK}/Serv00 自动登录成功/账号 ${username} SSH 连接成功?group=Serv00 自动登录&sound=silence`;
         await fetch(url);
       }
 
@@ -82,8 +82,8 @@ async function sshConnect(account) {
     }).on('error', async (err) => {
       console.error(`SSH 连接失败: ${err}`);
 
-      if (bark) {
-        const url = `https://api.day.app/${bark}/账号 ${username} SSH 连接失败，请检查账号和密码是否正确?group=Serv00 自动登录&sound=silence`;
+      if (BARK) {
+        const url = `https://api.day.app/${BARK}/Serv00 自动登录失败/账号 ${username} SSH 连接失败，请检查账号和密码是否正确?group=Serv00 自动登录&sound=silence`;
         await fetch(url);
       }
 
@@ -103,4 +103,3 @@ async function sshConnect(account) {
     });
   });
 }
-

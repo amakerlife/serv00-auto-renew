@@ -20,14 +20,18 @@
 
 ## 环境变量
 
+> [!CAUTION]
+> Bark 环境变量格式已修改，请注意更改。
+
+
 | 变量名              | 内容                                            |
 | ------------------- | ----------------------------------------------- |
 | BASIC_AUTH_USERNAME | HTTP 基本认证用户名                             |
 | BASIC_AUTH_PASSWORD | HTTP 基本认证密码                               |
 | CRON_SECRET         | Vercel 进行 Cron Jobs 时所用密码                |
+| BARK（可选）        | BARK 推送密钥                                   |
 | HOSTx               | 例如 `HOST1`，可配置多个，为 SSH 连接地址       |
 | USERNAMEx           | 例如 `USERNAME1`，可配置多个，为 SSH 连接用户名 |
 | PASSWORDx           | 例如 `PASSWORD1`，可配置多个，为 SSH 连接密码   |
-| BARKx（可选）       | 例如 `BARK1`，可配置多个，为 BARK 密钥          |
 
 注意可配置多个的环境变量需配套使用。

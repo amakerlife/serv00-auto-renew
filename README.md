@@ -41,7 +41,7 @@
 
 如需更改定时任务设置，请修改 `vercel.json`。
 
-默认 `ssh-connect` 在每月 10、20、28 日执行一次，`ssh-command` 无定时。
+默认 `ssh-connect` 在每月 10、20、28 日执行一次，`ssh-command` 每天一次。
 
 > [!TIP]
 > Vercel 免费版单 Cron Job 一天最多执行一次，即 `0 0 * * *`。
